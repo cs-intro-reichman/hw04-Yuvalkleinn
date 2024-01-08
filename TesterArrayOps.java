@@ -6,8 +6,8 @@ public class TesterArrayOps {
             return;
         }
 
-        String functionName = args[0];
-        int inputNumber = Integer.parseInt(args[1]);
+        String functionName = "sdf";
+        int inputNumber = 2;
 
         switch (functionName) {
             case "findMissingInt":
