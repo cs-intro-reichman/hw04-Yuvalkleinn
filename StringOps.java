@@ -27,16 +27,96 @@ public class StringOps {
 
     public static String capVowelsLowRest (String string) {
         // Write your code here:
-        return "";
+        String newStr = "";
+        String newVowelStr = "";
+
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                ch += 32;
+            }
+            newStr += ch;
+        }
+
+        for (int j = 0; j < newStr.length(); j++) {
+            char chnew = newStr.charAt(j);
+            if (chnew == 'a' || chnew == 'i' || chnew == 'e' || chnew == 'o' || chnew == 'u' ) {
+                chnew -= 32;
+            }
+            newVowelStr += chnew;
+        }
+
+        return newVowelStr;
     }
 
-    public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+    public static String camelCase(String string) {
+        String camelCaseString = "";
+        boolean startNewWord = false;
+        boolean isFirstWord = true;
+        int charInt;
+        char currentChar;
+    
+        for (int i = 0; i < string.length(); i++) {
+            charInt = (int) string.charAt(i);
+    
+            if (string.charAt(i) != ' ') {
+                if (isFirstWord) {
+                    if (charInt < 90 && charInt > 65) {
+                        charInt += 32;
+                    }
+                    currentChar = (char) charInt;
+    
+                    camelCaseString += currentChar;
+    
+                    if ((i < string.length() + 1) && (string.charAt(i + 1) == ' ')) {
+                        isFirstWord = false;
+                    }
+                } else {
+                    // Checking if the letter is Caps
+                    if (charInt < 90 && charInt > 65) {
+                        // Caps on new word
+                        if (startNewWord) {
+                            startNewWord = false;
+                        } else {
+                            // Difference in the ASCII table between lower and upper
+                            charInt += 32;
+                        }
+                    } else {
+                        if (startNewWord) {
+                            charInt -= 32;
+                            startNewWord = false;
+                        }
+                    }
+    
+                    currentChar = (char) charInt;
+                    camelCaseString += currentChar;
+                }
+            } else if (!isFirstWord) {
+                startNewWord = true;
+            }
+        }
+    
+        return camelCaseString;
     }
 
-    public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+    public static int[] allIndexOf(String string, char chr) {
+        int indexCount = 0; 
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {   
+                indexCount++;
+            }
+        }
+    
+        int[] indexes = new int[indexCount];
+        int current = 0;
+    
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                indexes[current] = i;
+                current++;
+            }
+        }
+    
+        return indexes;
     }
 }
