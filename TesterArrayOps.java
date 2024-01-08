@@ -6,8 +6,8 @@ public class TesterArrayOps {
         //     return;
         // }
 
-        String functionName = "secondMaxValue";
-        int inputNumber = 2;
+        String functionName = "containsTheSameElements";
+        int inputNumber = 4;
 
         switch (functionName) {
             case "findMissingInt":

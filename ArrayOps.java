@@ -54,12 +54,55 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        // Write your code here:
-        return false;
+        boolean check = false;
+
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]) {
+                    check = true;
+                }
+            }
+            if (!check) {
+                return false;
+            }
+            check = false;
+        }
+
+        for (int j = 0; j < array2.length; j++) {
+            for (int i = 0; i < array2.length; i++) {
+                if (array1[i] == array2[j]) {
+                    check = true;
+                }
+            }
+            if (!check) {
+                return false;
+            }
+            check = false;
+            }
+        return true;
     }
 
     public static boolean isSorted(int [] array) {
-        // Write your code here:
+        boolean increasing = true;
+        boolean decreasing = true;
+
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > array [i+1]) {
+                decreasing = false;
+            }
+
+            if (array[i] < array [i+1]) {
+                increasing = false;
+            }
+        }
+
+        if (increasing) {
+            return true;
+        }
+
+        if (decreasing) {
+            return true;
+        }
         return false;
     }
 
