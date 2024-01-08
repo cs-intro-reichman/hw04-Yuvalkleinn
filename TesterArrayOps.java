@@ -6,8 +6,8 @@ public class TesterArrayOps {
             return;
         }
 
-        String functionName = "containsTheSameElements";
-        int inputNumber = 4;
+        String functionName = args[0];
+        int inputNumber = Integer.parseInt(args[1]);
 
         switch (functionName) {
             case "findMissingInt":
