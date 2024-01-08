@@ -29,7 +29,7 @@ public class ArrayOps {
         int max = 0;
         int second_max = 0;
 
-        if (array[0]>=array[1]) {
+        if (array[0] >= array[1]) {
             max = array[0];
             second_max = array[1];
         }
