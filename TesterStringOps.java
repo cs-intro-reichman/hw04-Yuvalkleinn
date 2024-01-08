@@ -8,8 +8,8 @@ public class TesterStringOps {
             return;
         }
 
-        String functionName = "allIndexOf";
-        int inputNumber = 5;
+        String functionName = args[0];
+        int inputNumber = Integer.parseInt(args[1]);
 
         switch (functionName) {
             case "capVowelsLowRest":
