@@ -1,12 +1,12 @@
 public class TesterArrayOps {
 
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage: java TesterArrayOps <function_name> <input_number>");
-            return;
-        }
+        // if (args.length != 2) {
+        //     System.out.println("Usage: java TesterArrayOps <function_name> <input_number>");
+        //     return;
+        // }
 
-        String functionName = "sdf";
+        String functionName = "secondMaxValue";
         int inputNumber = 2;
 
         switch (functionName) {
