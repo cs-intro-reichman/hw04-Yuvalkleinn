@@ -26,6 +26,7 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
+        String newStr = "";
         String newVowelStr = "";
 
         for (int i = 0; i < string.length(); i++) {
