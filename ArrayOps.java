@@ -7,17 +7,13 @@ public class ArrayOps {
 
         // Declare variables
         int actual_sum = 0;
-        int sum_expected = 0;
+        int sum_expected = array.length;
         int diff = 0;
 
-        // Calculate the expected sum
-        for (int j = 0; j < array.length + 1; j++) {
-            sum_expected += j;
-        }
-        
-        // Calculate the actual sum
+        // #feedback: could be calculated within same loop
         for (int i = 0; i < array.length; i++) {
             actual_sum += array[i];
+            sum_expected += i;
         }
 
         diff = sum_expected - actual_sum;
@@ -32,9 +28,7 @@ public class ArrayOps {
         if (array[0] >= array[1]) {
             max = array[0];
             second_max = array[1];
-        }
-
-        else {
+        } else {
             max = array[1];
             second_max = array[0];
         }
@@ -54,31 +48,24 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        boolean check = false;
+        // #feedback: duplication of code is always bad idea - let's take the same logic outo side function
+        return isSubset(array1, array2) && isSubset(array2, array1);
+    }
 
-        for (int i = 0; i < array1.length; i++) {
-            for (int j = 0; j < array2.length; j++) {
-                if (array1[i] == array2[j]) {
+    public static boolean isSubset(int[] subset, int[] array) {
+        boolean check = false;
+        
+        for (int i = 0; i < subset.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (subset[i] == array[j]) {
                     check = true;
                 }
             }
             if (!check) {
                 return false;
             }
-            check = false;
         }
 
-        for (int j = 0; j < array2.length; j++) {
-            for (int i = 0; i < array2.length; i++) {
-                if (array1[i] == array2[j]) {
-                    check = true;
-                }
-            }
-            if (!check) {
-                return false;
-            }
-            check = false;
-            }
         return true;
     }
 
@@ -96,14 +83,8 @@ public class ArrayOps {
             }
         }
 
-        if (increasing) {
-            return true;
-        }
-
-        if (decreasing) {
-            return true;
-        }
-        return false;
+        // #feedback: could be minimized to this line
+        return increasing || decreasing;
     }
 
 }
