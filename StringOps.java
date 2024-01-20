@@ -26,8 +26,6 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        String newStr = "";
         String newVowelStr = "";
 
         for (int i = 0; i < string.length(); i++) {
@@ -67,8 +65,9 @@ public class StringOps {
                     currentChar = (char) charInt;
     
                     camelCaseString += currentChar;
-    
-                    if ((i < string.length() + 1) && (string.charAt(i + 1) == ' ')) {
+
+                    // #feedback: oops :)
+                    if ((i + 1 < string.length()) && (string.charAt(i + 1) == ' ')) {
                         isFirstWord = false;
                     }
                 } else {
